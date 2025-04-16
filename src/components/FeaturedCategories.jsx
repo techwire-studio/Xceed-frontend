@@ -5,32 +5,32 @@ import schottkyIcon from "../assets/thyristor.png"
 import capacitorIcon from "../assets/capacitor.png"
 import diodeIcon from "../assets/diode.png"
 import microchipIcon from "../assets/microchip.png"
-
+import BackgroundPattern from "./BackgroundPattern"
 
 const categories = [
   {
     name: "Mosfets",
-    icon: <img src={mosfetIcon} alt="Mosfets" className="w-6 h-6" />,
+    icon: <img src={mosfetIcon} alt="Mosfets" className="w-9" />,
   },
   {
     name: "Potentiometer",
-    icon: <img src={potentiometerIcon} alt="Potentiometer" className="w-6 h-6" />,
+    icon: <img src={potentiometerIcon} alt="Potentiometer" className="w-9" />,
   },
   {
     name: "Capacitors",
-    icon: <img src={capacitorIcon} alt="Capacitors" className="w-6 h-6" />,
+    icon: <img src={capacitorIcon} alt="Capacitors" className="w-9" />,
   },
   {
     name: "Diode",
-    icon: <img src={diodeIcon} alt="Diode" className="w-6 h-6" />,
+    icon: <img src={diodeIcon} alt="Diode" className="w-9" />,
   },
   {
     name: "Microchips",
-    icon: <img src={microchipIcon} alt="Microchips" className="w-6 h-6" />,
+    icon: <img src={microchipIcon} alt="Microchips" className="w-9" />,
   },
   {
     name: "Schottky/Thyristor",
-    icon: <img src={schottkyIcon} alt="Schottky/Thyristor" className="w-6 h-6" />,
+    icon: <img src={schottkyIcon} alt="Schottky/Thyristor" className="w-9" />,
   },
 ]
 
@@ -51,55 +51,39 @@ const FeaturedCategories = () => {
   }
 
   return (
-    <div 
-      className="bg-[#191919] py-16 px-4 relative"
-      style={{
-        backgroundImage: `
-        repeating-linear-gradient(
-          to right,
-          transparent,
-          transparent 6%,
-          rgba(200, 200, 200, 0.15),
-          rgba(200, 200, 200, 0.15) calc(6% + 1px),
-          transparent calc(6% + 1px),
-          transparent calc(6% + 1.5%),
-          rgba(200, 200, 200, 0.15),
-          rgba(200, 200, 200, 0.15) calc(6% + 1.5% + 1px),
-          transparent calc(6% + 1.5% + 1px),
-          transparent 12.5%
-        )
-      `,
-        backgroundSize: '100% 100%',
-      }}
+    <BackgroundPattern 
+      lineColor="#414141" 
+      backgroundColor="#191919"
+      className="py-16 px-8"
     >
       <motion.div 
-        className="max-w-6xl mx-auto relative z-10 mb-16"
+        className="max-w-full relative z-10 mb-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <motion.h2 variants={itemVariants} className="text-3xl font-bold text-[#2289FF] mb-2 font-jost">FEATURED</motion.h2>
-        <motion.h3 variants={itemVariants} className="text-3xl font-bold text-[#2289FF] mb-10 font-jost">CATEGORIES</motion.h3>
+        <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold text-[#2289FF] mb-2 font-jost">FEATURED</motion.h2>
+        <motion.h3 variants={itemVariants} className="text-3xl md:text-4xl font-bold text-[#2289FF] mb-12 font-jost">CATEGORIES</motion.h3>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20"
+          className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-32"
           variants={containerVariants}
         >
           {categories.map((category, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 py-8 flex items-center space-x-4 hover:shadow-lg transition duration-300"
+              className="bg-white p-6 py-10 flex items-center space-x-4 hover:shadow-lg transition duration-300"
               variants={itemVariants}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
               {category.icon}
-              <span className="text-lg font-medium font-jost">{category.name}</span>
+              <span className="text-xl font-medium font-jost">{category.name}</span>
             </motion.div>
           ))}
         </motion.div>
       </motion.div>
-    </div>
+    </BackgroundPattern>
   )
 }
 

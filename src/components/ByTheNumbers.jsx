@@ -4,10 +4,10 @@ import b2 from "../assets/b2.png";
 
 export default function ByTheNumbers() {
   return (
-    <div className="max-w-6xl mx-auto bg-white py-12 px-6 font-jost overflow-hidden"> {/* Added overflow-hidden to container */}
+    <div className="max-w-full mx-auto bg-white py-12 px-6 font-jost overflow-hidden"> {/* Added overflow-hidden to container */}
       {/* By the Numbers Section - Made responsive */}
-      <div className="my-16 md:my-24"> {/* Adjusted vertical margin */}
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-8 md:mb-12">BY THE NUMBERS</h2>
+      <div className="my-16 md:my-24 flex items-baseline justify-around"> {/* Adjusted vertical margin */}
+      <h2 className="h-full text-4xl sm:text-4xl font-bold text-gray-800 text-center flex items-start">BY THE NUMBERS</h2>
         
         {/* Adjusted gap and wrapping for smaller screens */}
         <div className="flex flex-wrap justify-center gap-8 sm:gap-12 md:gap-24">

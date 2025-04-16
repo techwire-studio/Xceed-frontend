@@ -4,7 +4,7 @@ import chips from "../assets/chips.png"
 
 const QualityProducts = () => {
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto font-jost">
+    <section className="py-16 px-4 max-w-full mx-auto font-jost">
       <div className="mb-6 text-left">
         <span className="text-blue-600 font-normal">Direct and wholesale</span>
         <h2 className="text-3xl font-medium text-blue-800 mt-2">
@@ -30,7 +30,7 @@ const QualityProducts = () => {
             <h3 className="text-lg font-semibold text-blue-700 mb-2">
               Global Sourcing & Rigorous Testing
             </h3>
-            <p className="text-gray-700">
+            <p className="text-gray-700 w-3/4">
               We meticulously source products from trusted manufacturers worldwide and rigorously test each item in our state of the art lab, ensuring you receive the right components for your projects.
             </p>
           </div>
@@ -53,7 +53,7 @@ const QualityProducts = () => {
             <h3 className="text-lg font-semibold text-blue-700 mb-2">
               Best-in-Class Components
             </h3>
-            <p className="text-gray-700">
+            <p className="text-gray-700 w-3/4">
               Our commitment is to provide only top-tier chips and electronic parts, delivering unmatched quality and reliability to empower your designs without compromise.
             </p>
           </div>

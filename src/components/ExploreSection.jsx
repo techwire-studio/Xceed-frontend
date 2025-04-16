@@ -1,9 +1,10 @@
 import { Star } from "lucide-react"
 import c1 from "../assets/c1.png"
-import c2 from "../assets/c2.png" 
+import c2 from "../assets/c2.png"
 import c3 from "../assets/c3.png"
 import c4 from "../assets/c4.png"
-import { motion } from "framer-motion"
+import BackgroundPattern from "./BackgroundPattern"
+import star from "../assets/star.svg"
 
 const products = [
   {
@@ -30,76 +31,47 @@ const products = [
 ]
 
 const ExploreSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  }
-
   return (
-    <motion.div 
-      className="py-4 px-4"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8 }}
+    <BackgroundPattern
+      lineColor="#E1E1E1"
+      backgroundColor="#F9F9F9"
+      className="py-16 px-8"
     >
-      <motion.div className="max-w-6xl mx-auto">
-        <motion.h2 
-          className="text-3xl font-bold text-[#1428A1] mb-10"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          EXPLORE
-        </motion.h2>
-
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-2"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
+      <div className="max-w-full relative z-10 my-10">
+        <div className="mb-20">
+          <h2 className="text-4xl font-bold text-[#1428A1] font-jost">
+            EXPLORE
+          </h2>
+          <div className=" relative left-22 w-18 h-1 bg-yellow-500"></div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:flex gap-4 mb-2 font-jost text-[#1428A1] w-full lg:justify-between">
           {products.map((product, index) => (
-            <motion.div
+            <div
               key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              className={`border p-4 flex flex-col items-center justify-center h-48 ${
+              className={`border p-4 flex flex-col items-center justify-center md:h-62 md:w-60 h-32 w-28 justify-self-center ${
                 product.isFeatured ? "bg-[#1428A1] text-white" : "bg-[#F6F8FF]"
               }`}
             >
               {product.isFeatured ? (
                 <>
-                  <Star className="w-8 h-8 mb-2" />
-                  <span>Featured Products</span>
+                  <img src={star} className="w-16 h-16 mb-8" />
+                  <span className="text-xl">Featured Products</span>
                 </>
               ) : (
                 <>
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-12 h-12 mb-2 object-contain"
+                    className="w-16 h-16 mb-2 object-contain"
                   />
-                  <span className="text-sm text-center">{product.name}</span>
+                  <span className="text-sm font-semibold text-center mt-2">{product.name}</span>
                 </>
               )}
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
-    </motion.div>
+        </div>
+      </div>
+    </BackgroundPattern>
   )
 }
 

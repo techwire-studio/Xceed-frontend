@@ -18,7 +18,7 @@ const WhyChooseUs = () => {
       </div>
       
       {/* Content container */}
-      <div className="max-w-7xl mx-auto px-4 py-16 relative z-10">
+      <div className="max-w-full px-8 py-16 relative z-10">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Text content */}
           <div className="space-y-6">

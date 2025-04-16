@@ -22,13 +22,14 @@
     <style>
       body, html { margin: 0; padding: 0; }
       body { font-family: sans-serif; /* Start with fallback font */ }
-      .hero-container { background-color: #111; height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; position: relative; }
+      /* Changed height to min-height: 100vh */
+      .hero-container { background-color: #111; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; position: relative; }
       .hero-bg { position: absolute; inset: 0; background-image: url('/src/assets/hero.webp'); background-size: cover; background-position: center top; opacity: 0.9; }
       .hero-content { position: relative; z-index: 10; max-width: 48rem; margin: 0 auto; padding: 0 1rem; }
       /* Critical styles ONLY for h1 */
       .hero-title {
         font-family: 'Jost', sans-serif; /* Apply Jost once loaded */
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 500;
         color: white;
         margin-bottom: 2rem;

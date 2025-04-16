@@ -1,0 +1,2 @@
+
+src/assets/* !text !filter !merge !diff
