@@ -1,35 +1,70 @@
-import { useRef, useEffect } from "react"
-import image1 from "../assets/hero.webp" // Changed to webp for performance
+import { useRef, useEffect, useState } from "react";
+import { Volume2, VolumeX } from 'lucide-react'; // Ensure lucide-react is installed
 
 const Hero = () => {
-  const ref = useRef(null)
-  
-  // Hide the static placeholder once React mounts this component
+  const containerRef = useRef(null);
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  // Set up the video to play automatically when the component mounts
   useEffect(() => {
-    const placeholder = document.getElementById("hero-placeholder")
-    if (placeholder) {
-      placeholder.style.display = "none"
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted; // Initialize muted state
+      videoRef.current.play().catch(error => {
+        // Handle autoplay restrictions gracefully
+        console.log("Autoplay prevented:", error);
+      });
     }
-  }, [])
-  
+  }, [isMuted]); // React when isMuted changes
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+  };
+
   return (
-    <div 
-      ref={ref}
-      className="hero-container"
+    <div
+      ref={containerRef}
+      className="hero-container bg-[#111] min-h-screen flex items-center justify-center text-center overflow-hidden relative"
     >
-      {/* Match the structure and class names from index.html */}
-      <div className="hero-bg"></div>
-      
-      <div className="hero-content">
-        <h1 className="hero-title">
+      {/* Video background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          ref={videoRef}
+          className="absolute w-full h-full object-cover"
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          preload="auto" // Optimize loading
+        >
+          <source
+            src="https://res.cloudinary.com/dlzkqms1c/video/upload/q_auto,f_auto/v1744788028/Xceed_uthuax.mp4"
+            type="video/mp4"
+          />
+          {/* Fallback text if video can't be played */}
+          Your browser does not support the video tag.
+        </video>
+        {/* Optional overlay to darken or adjust video contrast */}
+        <div className="absolute inset-0 bg-black opacity-40"></div>
+      </div>
+
+      <div className="hero-content relative z-10 max-w-3xl mx-auto px-4">
+        <h1 className="hero-title font-jost text-6xl font-medium text-white mb-8 leading-tight">
           India's #1 Reliable Supplier for Premium Electronic Components
         </h1>
-        <button className="hero-button">
+        <button className="hero-button inline-block border-2 border-white text-white bg-transparent py-3 px-8 mt-8 text-lg font-medium">
           Explore
         </button>
       </div>
+      {/* Volume toggle button */}
+      <button
+        onClick={toggleMute}
+        className="absolute bottom-4 right-4 z-20 bg-black bg-opacity-50 text-white rounded-full p-2"
+      >
+        {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
