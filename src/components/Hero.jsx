@@ -1,9 +1,9 @@
-import { useRef, useEffect, useState } from "react"
-import { Volume2, VolumeX } from 'lucide-react'; // Ensure you have lucide-react installed
+import { useRef, useEffect, useState } from "react";
+import { Volume2, VolumeX } from 'lucide-react'; // Ensure lucide-react is installed
 
 const Hero = () => {
-  const containerRef = useRef(null)
-  const videoRef = useRef(null)
+  const containerRef = useRef(null);
+  const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
 
   // Set up the video to play automatically when the component mounts
@@ -12,10 +12,10 @@ const Hero = () => {
       videoRef.current.muted = isMuted; // Initialize muted state
       videoRef.current.play().catch(error => {
         // Handle autoplay restrictions gracefully
-        console.log("Autoplay prevented:", error)
-      })
+        console.log("Autoplay prevented:", error);
+      });
     }
-  }, [isMuted]) // React when isMuted changes
+  }, [isMuted]); // React when isMuted changes
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
@@ -28,15 +28,19 @@ const Hero = () => {
     >
       {/* Video background */}
       <div className="absolute inset-0 overflow-hidden">
-        <video 
+        <video
           ref={videoRef}
           className="absolute w-full h-full object-cover"
           autoPlay
           muted={isMuted}
           loop
           playsInline
+          preload="auto" // Optimize loading
         >
-          <source src="/src/assets/Xceed.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/dlzkqms1c/video/upload/q_auto,f_auto/v1744788028/Xceed_uthuax.mp4"
+            type="video/mp4"
+          />
           {/* Fallback text if video can't be played */}
           Your browser does not support the video tag.
         </video>
@@ -52,15 +56,15 @@ const Hero = () => {
           Explore
         </button>
       </div>
-       {/* Volume toggle button */}
-       <button
-          onClick={toggleMute}
-          className="absolute bottom-4 right-4 z-20 bg-black bg-opacity-50 text-white rounded-full p-2"
-        >
-          {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
-        </button>
+      {/* Volume toggle button */}
+      <button
+        onClick={toggleMute}
+        className="absolute bottom-4 right-4 z-20 bg-black bg-opacity-50 text-white rounded-full p-2"
+      >
+        {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

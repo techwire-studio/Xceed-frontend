@@ -6,8 +6,11 @@ export default function ByTheNumbers() {
   return (
     <div className="max-w-full mx-auto bg-white py-12 px-6 font-jost overflow-hidden"> {/* Added overflow-hidden to container */}
       {/* By the Numbers Section - Made responsive */}
-      <div className="my-16 md:my-24 flex items-baseline justify-around"> {/* Adjusted vertical margin */}
-      <h2 className="h-full text-4xl sm:text-4xl font-bold text-gray-800 text-center flex items-start">BY THE NUMBERS</h2>
+      <div className="my-16 md:my-24 flex flex-col md:flex-row items-baseline md:justify-around gap-4"> {/* Adjusted vertical margin */}
+        <div>
+            <h2 className="h-full text-4xl sm:text-4xl font-bold text-gray-800 text-center flex items-start">BY THE NUMBERS</h2>
+            <div className="w-16 h-1 bg-yellow-500"></div>
+        </div>
         
         {/* Adjusted gap and wrapping for smaller screens */}
         <div className="flex flex-wrap justify-center gap-8 sm:gap-12 md:gap-24">
@@ -42,7 +45,7 @@ export default function ByTheNumbers() {
         {/* Set width to full below md, adjusted height and margin */}
         <div className="relative w-full md:w-1/2 h-80 sm:h-96 mb-8 md:mb-0 px-4">
           {/* First image - Adjusted size and position */}
-          <div className="absolute sm:left-10 md:left-20 top-0 w-40 h-56 sm:w-56 sm:h-72 md:w-64 md:h-90 bg-purple-200 overflow-hidden rounded-md shadow-lg">
+          <div className="absolute left-0 sm:left-10 md:left-20 top-0 w-40 h-56 sm:w-56 sm:h-72 md:w-64 md:h-90 bg-purple-200 overflow-hidden rounded-md shadow-lg">
             <img 
               src={b2} 
               alt="Person in tech environment with purple lighting"
@@ -52,7 +55,7 @@ export default function ByTheNumbers() {
           
           {/* Second image - Adjusted size and position */}
           {/* Centered horizontally below md */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 md:left-2/3 top-16 w-48 h-64 sm:w-64 sm:h-80 md:w-72 md:h-90 bg-gray-200 overflow-hidden rounded-md shadow-lg z-10">
+          <div className="absolute left-2/3 transform -translate-x-1/2 md:left-2/3 top-16 w-48 h-64 sm:w-64 sm:h-80 md:w-72 md:h-90 bg-gray-200 overflow-hidden rounded-md shadow-lg z-10">
             <img 
               src={b1} 
               alt="Person working on laptop"
