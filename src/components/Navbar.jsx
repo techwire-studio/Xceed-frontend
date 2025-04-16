@@ -41,9 +41,13 @@ const Navbar = memo(({ toggleSidebar }) => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full ${isHomePage && !scrolled ? 'bg-transparent' : 'bg-black shadow-lg'} py-4 px-6 flex items-center justify-between md:justify-around z-20 transition-colors duration-300`}
-    >
+      <nav 
+        className={`fixed top-0 left-0 w-full ${
+          isHomePage && !scrolled 
+            ? 'bg-opacity- backdrop-blur-3xl' 
+            : 'bg-black shadow-lg'
+        } py-4 px-6 flex items-center justify-between md:justify-around z-20 transition-colors duration-300`}
+      >
       <Link to="/" className="text-2xl font-bold text-white tracking-tight font-jost relative">
         XCEED
         {isHomePage && (

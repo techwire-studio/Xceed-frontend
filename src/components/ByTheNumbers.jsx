@@ -40,9 +40,9 @@ export default function ByTheNumbers() {
         
         {/* Overlapping images - Adjusted for responsiveness */}
         {/* Set width to full below md, adjusted height and margin */}
-        <div className="relative w-full md:w-1/2 h-80 sm:h-96 mb-8 md:mb-0">
+        <div className="relative w-full md:w-1/2 h-80 sm:h-96 mb-8 md:mb-0 px-4">
           {/* First image - Adjusted size and position */}
-          <div className="absolute sm:left-4 md:left-0 top-0 w-40 h-56 sm:w-56 sm:h-72 md:w-64 md:h-80 bg-purple-200 overflow-hidden rounded-md shadow-lg">
+          <div className="absolute sm:left-10 md:left-20 top-0 w-40 h-56 sm:w-56 sm:h-72 md:w-64 md:h-90 bg-purple-200 overflow-hidden rounded-md shadow-lg">
             <img 
               src={b2} 
               alt="Person in tech environment with purple lighting"
@@ -52,7 +52,7 @@ export default function ByTheNumbers() {
           
           {/* Second image - Adjusted size and position */}
           {/* Centered horizontally below md */}
-          <div className="absolute left-2/3 transform -translate-x-1/2 md:left-2/3 top-16 w-48 h-64 sm:w-64 sm:h-80 md:w-72 md:h-80 bg-gray-200 overflow-hidden rounded-md shadow-lg z-10">
+          <div className="absolute left-1/2 transform -translate-x-1/2 md:left-2/3 top-16 w-48 h-64 sm:w-64 sm:h-80 md:w-72 md:h-90 bg-gray-200 overflow-hidden rounded-md shadow-lg z-10">
             <img 
               src={b1} 
               alt="Person working on laptop"

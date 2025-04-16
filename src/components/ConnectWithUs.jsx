@@ -21,7 +21,7 @@ const ConnectWithUs = () => {
           
           {/* Profile Images + Tagline */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="flex -space-x-3">
+            <div className="flex -space-x-3 ml-4">
               <img src={profile1} alt="Profile 1" className="w-10 h-10 rounded-full border-2 border-white" />
               <img src={profile2} alt="Profile 2" className="w-10 h-10 rounded-full border-2 border-white" />
               <img src={profile3} alt="Profile 3" className="w-10 h-10 rounded-full border-2 border-white" />
@@ -36,7 +36,7 @@ const ConnectWithUs = () => {
           {/* Quote + Author + CTA */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div className="max-w-4xl sm:ml-16 mx-4">
-              <p className="text-xl sm:text-2xl font-medium mb-6 text-[#313131] leading-loose tracking-wide">
+              <p className="text-xl sm:text-2xl font-medium mb-6 text-white leading-loose tracking-wide">
                 “Xceed has completely changed the way we source electronic components. The quality is consistently top-notch, and their support team is quick to respond with accurate quotations and delivery timelines. It’s rare to find this level of reliability and transparency in the industry.”
               </p>
               <p className="font-bold text-base text-[#313131]">Chandan K</p>
